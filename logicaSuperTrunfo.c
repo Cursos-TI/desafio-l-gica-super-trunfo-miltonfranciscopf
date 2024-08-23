@@ -28,12 +28,16 @@ int compararpibPerCapita(float pibPerCapitaA,float pibPerCapitaB){
 }
 
 int main(){
-    int opcao=0; // variavel de entrada de dados do menu
-    int resultado=0; //resultado da carta vencedora
-    int atributo; //numero do atributo no menu
+    int cartaVencedora=0; 
+    //variaveis do menu
+    int opcaoUm=0; 
+    int opcaoDois=0; 
+    int resultadoUm=0; 
+    int resultadoDois=0; 
+
     //iniciando variaveis da primeira carta
-    char estadoA; //uma letra
-    char codigoCartaA[3]; //letra + numero de dois digitos(ex. 01)
+    char estadoA; 
+    char codigoCartaA[3]; 
     char nomeCidadeA[70];
     int populacaoA;
     float areaA;
@@ -42,8 +46,8 @@ int main(){
     float densidadePopulacionalA;
     float pibPerCapitaA;
     //iniciando variaveis da segunda carta
-    char estadoB; //uma letra
-    char codigoCartaB[3]; //letra + numero de dois digitos(ex. 01)
+    char estadoB; 
+    char codigoCartaB[3]; 
     char nomeCidadeB[70];
     int populacaoB;
     float areaB;
@@ -115,34 +119,67 @@ int main(){
     printf("5- Comparar a DENSIDADE POPULACIONAL das duas cartas\n");
     printf("6- Comparar o PIB PER CAPITA das duas cartas\n");
     printf("\n");
-    printf("Escolhar um numero de entrada no MENU(1-6):");
-    scanf("%d",&opcao);
+    printf("Escolha o PRIMEIRO atributo a ser comparado:");
+    scanf("%d",&opcaoUm);
+    printf("Escolha o SEGUNDO atributo a ser comparado:");
+    scanf("%d",&opcaoDois);
+    if(opcaoUm==opcaoDois){
+        printf("VC SELECIONOU O MESMO ATRIBUTO!\n");
+        printf("Escolha OUTRO atributo a ser comparado:");
+        scanf("%d",&opcaoDois);
 
-    switch (opcao)
+        if(opcaoUm==opcaoDois){
+        printf("VC SELECIONOU O MESMO ATRIBUTO!\n");
+        printf("Escolha OUTRO atributo a ser comparado:");
+        scanf("%d",&opcaoDois);
+        }
+    }
+
+    //comparando o primeiro atributo
+    switch (opcaoUm)
     {
     case 1:
-        resultado = compararPopulacao(populacaoA,populacaoB);
-        atributo=1;
+        resultadoUm = compararPopulacao(populacaoA,populacaoB);
         break;
     case 2:
-        resultado = compararArea(areaA,areaB);
-        atributo=2;
+        resultadoUm = compararArea(areaA,areaB);
         break;
     case 3:
-        resultado = compararPIB(pibA,pibB);
-        atributo=3;
+        resultadoUm = compararPIB(pibA,pibB);
         break;
     case 4:
-        resultado = compararNumeroDePontosTuristicos(numeroPontosTuristicosA,numeroPontosTuristicosB);
-        atributo=4;
+        resultadoUm = compararNumeroDePontosTuristicos(numeroPontosTuristicosA,numeroPontosTuristicosB);
         break;
     case 5:
-        resultado = comparardensidadePopulacional(densidadePopulacionalA,densidadePopulacionalB);
-        atributo=5;
+        resultadoUm = comparardensidadePopulacional(densidadePopulacionalA,densidadePopulacionalB);
         break;
     case 6:
-        resultado = compararpibPerCapita(pibPerCapitaA,pibPerCapitaB);
-        atributo=6;
+        resultadoUm = compararpibPerCapita(pibPerCapitaA,pibPerCapitaB);
+        break;
+    default:
+        printf("Numero nao listado.\n");
+        break;
+    }
+    //comparando o segundo atributo
+    switch (opcaoDois)
+    {
+    case 1:
+        resultadoDois = compararPopulacao(populacaoA,populacaoB);
+        break;
+    case 2:
+        resultadoDois = compararArea(areaA,areaB);
+        break;
+    case 3:
+        resultadoDois = compararPIB(pibA,pibB);
+        break;
+    case 4:
+        resultadoDois = compararNumeroDePontosTuristicos(numeroPontosTuristicosA,numeroPontosTuristicosB);
+        break;
+    case 5:
+        resultadoDois = comparardensidadePopulacional(densidadePopulacionalA,densidadePopulacionalB);
+        break;
+    case 6:
+        resultadoDois = compararpibPerCapita(pibPerCapitaA,pibPerCapitaB);
         break;
     default:
         printf("Numero nao listado.\n");
@@ -174,34 +211,20 @@ int main(){
     printf("Densidade Populacional: %.2f\n",densidadePopulacionalB);
     printf("PIB per Capita: %.2f\n",pibPerCapitaB);
     printf("---------\n");
-
-    //imprimir qual o atributo comparado
-    if(atributo==1){
-        printf("Atributo da comparacao:POPULACAO\n");
-    }else if(atributo==2){
-        printf("Atributo da comparacao:AREA\n");
-    }else if(atributo==3){
-        printf("Atributo da comparacao:PIB\n");
-    }else if(atributo==4){
-        printf("Atributo da comparacao:NUMERO DE PONTOS TURISTICOS\n");
-    }else if(atributo==5){
-        printf("Atributo da comparacao:DENSIDADE POPULACIONAL\n");
-    }else if(atributo==6){
-        printf("Atributo da comparacao:PIB PER CAPITA\n");
-    }else{
-        printf("Nenhum atributo foi comparado.\n");
-    }
-    //resultado de carta vencedora
-    //1 verdadeiro e 0 falso
-    //1 primeira carta e 0 segunda carta
-    if(resultado){
-        printf("Resultado: Carta 1 é a vencedora!\n");
         
-    }else{
-        printf("Resultado: Carta 2 é a vencedora!\n");
-    }
+    //resultado de carta vencedora DA PRIMEIRA ESCOLHA
+    resultadoUm ? cartaVencedora++ : cartaVencedora--;
     
-
+    //resultado de carta vencedora DA SEGUNDA ESCOLHA
+    resultadoDois ? cartaVencedora++ : cartaVencedora--;
+   
+    if(cartaVencedora==0){
+        printf("CARTA VENDORA: EMPATE!\n");
+    }else if(cartaVencedora>0){
+        printf("CARTA VENDORA: Carta 1!\n");
+    }else{
+        printf("CARTA VENDORA: Carta 2!\n");
+    }
     return 0;
 }
 
