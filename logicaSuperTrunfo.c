@@ -64,10 +64,10 @@ int main(){
     scanf("%s",&estadoA);
 
     printf("Digite o CODIGO da primeira carta:");
-    scanf("%s",codigoCartaA);
+    scanf("%s",&codigoCartaA);
 
     printf("Digite o NOME da Cidade da primeira carta:");
-    scanf("%s",nomeCidadeA);
+    scanf("%s",&nomeCidadeA);
 
     printf("Digite o NUMERO da Populacao da primeira carta:");
     scanf("%d",&populacaoA);
@@ -90,10 +90,10 @@ int main(){
     scanf("%s",&estadoB);
 
     printf("Digite o CODIGO da segunda carta:");
-    scanf("%s",codigoCartaB);
+    scanf("%s",&codigoCartaB);
 
     printf("Digite o NOME da Cidade da segunda carta:");
-    scanf("%s",nomeCidadeB);
+    scanf("%s",&nomeCidadeB);
 
     printf("Digite o NUMERO da Populacao da segunda carta:");
     scanf("%d",&populacaoB);
