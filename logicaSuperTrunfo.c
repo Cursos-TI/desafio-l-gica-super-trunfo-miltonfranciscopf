@@ -56,7 +56,7 @@ int main(){
     float densidadePopulacionalB;
     float pibPerCapitaB;
 
-    printf("Desafio Cartas Super Trunfos\n");
+    printf("Desafio Cartas Super Trunfos\n");  
     
     printf("--CADASTRAR PRIMEIRA CARTA--\n");
     //digitando a primeira carta
