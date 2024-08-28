@@ -198,7 +198,7 @@ int main(){
     printf("Area: %.2f\n",areaA);
     printf("PIB: %.2f\n",pibA);
     printf("Pontos Turisticos: %d\n",numeroPontosTuristicosA);
-    printf("Densidade Populacional\n: %.2f",densidadePopulacionalA);
+    printf("Densidade Populacional: %.2f\n",densidadePopulacionalA);
     printf("PIB per Capita: %.2f\n",pibPerCapitaA);
     printf("---------\n");
     printf("<Carta 2>\nEstado: %c\n",estadoB);
